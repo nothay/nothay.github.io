@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<meta charset="UTF-8">
+<html>
+  <head>
+    <title> Insult Generator 9000 </title>
+    <link rel="stylesheet" type="text/css" href="stylesheet_insult.css">
+    <link rel="icon" href="files/insult-favicon.png">
+
+  </head>
+  <body>
+    <p class = "mediumText white" id="version"> Version x </p>
+    <h1 id="textelement" class = "center fadein bold"> . </h1>
+    <p id="disclaimer" class = "mediumText center white"> Disclaimer: Do not EVER take these seriously. It is only for fun. </p>
+    <div style="text-align:center;">
+      <input type="button" class = "center white" onClick="pickMessage()" value="Generate more insults!">
+    </div>
+
+    <script>
+            var person = [
+            "You look like"
+            ,"You are"
+            ,"Oh look it's"
+            ,"You need to go away, since you're"
+            ,"I hate you because you're"
+            ,"You smell like you're"
+            ,"Hey you, you are"
+            ,"God damnit, you're"
+            ,"Oh shit,"
+            ,"Kill yourself, you're just"
+            ,"I don't see why you're alive, you're just"
+            ,"I can smell you, and you smell like"
+            ,"Arnold does not approve of"
+            ,"This website is as insulting as you, and you're just"
+            ,"You're worse than Hitler, and you're"
+            ,"Are you"
+            ,"You're equal to"
+            ,"You're just as dumb as"
+            ,"Come out of the closet, so you have a fucking ''excuse'' to be"
+            ,"Are you a feminist? Because to me you look like"
+            ,"Your existance is an insult to humanity. And you're"
+            ,"Everyone hates you because you're"
+            ];
+            var object = [
+              "a potato",
+              "something that your parents regret creating",
+              "something that shouldn't live in the first place",
+              "a mistake",
+              "a failed abortion",
+              "nothing to me",
+              "a lovely person, yet I hate you",
+              "a faggot",
+              "a cunt",
+              "a little deluded piece of shit",
+              "an ill-informed, self serving prick",
+              "a little fucking idiot who's IQ is lower than a chair's IQ.",
+              "a failure of a human being",
+              "an asshole",
+              "a bitch",
+              "a feminist",
+              "an ugly person",
+              "a surströmming",
+              "a dickhead",
+              "a rotten fish",
+              "a Joel",
+              "a low-life cunt",
+              "a dead rat",
+              "a rotten egg",
+              "a literal piece of shit",
+              "an ungodly amount of diarrhoea",
+              "a coon",
+              "a wizard, Harry",
+              "a slut",
+              "a whore",
+              "a chair with three legs",
+              "a broken heart and a waste of time",
+              "a worthless cunt",
+              "a little shit",
+              "a dumb cunt",
+              "an asshat",
+              "a noob",
+              "a mysogynist",
+              "a fuckboy",
+              "a fuckgirl",
+              "a fuck..alien?",
+              "a stegosaurus",
+              "a fucking dipshit",
+              "a shit stain",
+              "a lost cause",
+              "another deadass piece of shit",
+              "a bowl haircut skinny eat more wanker",
+              "an emo",
+              "an idiot",
+              "supposed to be dead",
+              "a basic white bitch",
+              "an uncontrollable autistic little fucking retard",
+              "so worthless",
+              "a loner with a two girls one cup fetish",
+              "a holocaust victim",
+              "a tumblr user",
+              "a loner with a daddy kink",
+              "a guy with down's syndrome",
+              "Donald Trump's offspring", 
+              "the creator of this website",
+              "an idiot who does not deserve anything",
+              "a self-centered prick",
+              "a crackhead",
+              "a pothead",
+              "a childish piece of shit",
+              "an immature idiot",
+              "a Leif",
+              "a vegan idiot",
+              "a waste of time",
+              "an attention seeking little piece of shit",
+              "an otaku",
+              "a weaboo",
+              "someone who belongs in a gas chamber",
+              "a racist",
+              "an uneducated redneck",
+              "a dumb slut",
+              "a knobhead",
+              "SyntaxError: 120:5: Found '=' expected EOF.",
+              "an immature little fucktwit",
+              "a twat",
+              "a pinhead",
+              "a penis muncher",
+              "a fuckhead",
+              "a fucktard",
+              "a dickwad",
+              "a dickrash",
+              "a cunthead",
+              "a cuntshit",
+              "a fuckshit",
+              "a shitwad",
+              "a cuntface",
+              "a fuckface",
+              "a brainfart",
+              "an asshole",
+              "an asstwit",
+              "a cocksucker",
+              "a cuntsucker",
+              "a moron",
+              "a motherfucker",
+              "an inbred fucker",
+              "a mom-fucking-basement-dwelling retard",
+              "a cuck",
+              "a queer",
+              "a joke",
+              "a pathetic excuse for a human being",
+              "an illiterate piece of shit",
+            ]; // Sidenote: This is not final
+      function warning() {
+        var version = "Version 8"
+        var date = new Date();
+        var month = date.getMonth();
+        var day = date.getDate();
+        document.getElementById("version").innerHTML = version + " - Now with " + (person.length * object.length) + " possible combinations!";
+        if(month == 4 && day == 4) {
+          document.getElementById("version").innerHTML = version + " - May the fourth be with you, and " + (person.length * object.length) + " possible combinations!";
+        }
+        if(month == 10 && day == 22) {
+          document.getElementById("version").innerHTML = version + " - Happy birthday to Nothy! To celebrate this we now have " + (person.length * object.length) + " possible combinations!";
+        }
+        var x = document.cookie;
+        console.log(x)
+        if(x == "NOM_NOM_COOKIES=true") {
+          console.log("User isn't a bitch");
+          start();
+        } else {
+          console.log("User is.. a bitch?");
+          document.cookie = "NOM_NOM_COOKIES=true; expires=31 Dec 2018 12:00:00 UTC";
+          document.getElementById("textelement").innerHTML = "Warning: By using this you agree to not be offended, or else you can officially call yourself a little bitch.";
+          document.getElementById("disclaimer").innerHTML = "This site also uses cookies, so this only displays once. And the cookies are harmless *not edible";
+          //window.alert("Warning: By using this you agree to not be offended, bitch (This will only display once)");
+          window.setTimeout(start,8000);
+        }
+      }
+      function start() {
+
+        //var version = "Version x"
+        //document.getElementById("version").innerHTML = version;
+        document.getElementById("textelement").innerHTML = ".";
+        document.getElementById("disclaimer").innerHTML = "Disclaimer: Do not EVER take these seriously. It is only for fun.";
+        window.setTimeout(pickMessage,50);
+      }
+      function pickMessage() {
+
+        var messageIndex = Math.floor(Math.random() * person.length );
+        var messageIndex2 = Math.floor(Math.random() * object.length );
+        console.log("Insult #"+(messageIndex + messageIndex2 + Math.floor(Math.random())) + " :"+messageIndex+","+messageIndex2);
+        if(messageIndex == 15) {
+            var message = person[messageIndex] + " " + object[messageIndex2]+"? Because you sure look like it. >:(";
+        } else {
+          if (messageIndex2 == 59 ) {
+            console.log("Achievement: Creator'd")
+            messageIndex = 14;
+          }
+            var message = person[messageIndex] + " " + object[messageIndex2]+". >:(";
+        }
+
+        document.getElementById("textelement").innerHTML = message;
+
+        //document.getElementById("version").innerHTML = version + " - Now with " + (person.length * object.length) + " possible combinations!";
+      }
+      onload = function() { warning(); }
+
+    </script>
+
+  </body>
+</html>

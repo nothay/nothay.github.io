@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<meta charset="UTF-8">
+<html>
+  <head>
+    <title> Compliment Generator 9000 </title>
+    <link rel="stylesheet" type="text/css" href="stylesheet_compliment.css">
+    <link rel="icon" href="files/compliment-favicon.png">
+
+  </head>
+  <body>
+    <p class = "mediumText white" id="version"> Version x </p>
+    <h1 id="textelement" class = "center fadein bold"> . </h1>
+    <p id="disclaimer" class = "mediumText center white"> Disclaimer: Please do take these seriously. </p>
+    <div style="text-align:center;">
+      <input type="button" class = "center white" onClick="pickMessage()" value="Generate more compliments!">
+    </div>
+
+    <script>
+            var person = [
+              "You are",
+              "You're",
+              "Oh hey, you're"
+            ];
+            var object = [
+              "lovely",
+              "beautiful",
+              "cute",
+              "pretty",
+              "adorable",
+              "nice",
+              "great",
+              "amazing",
+              "so good looking today",
+              "super cute",
+              "a cutie pie",
+              "an amazing person",
+              "a lovely person",
+              "so amazing",
+              "absolutely adorable",
+              "insanely cute",
+              "stunning",
+              "so beautiful that I'm lost for words",
+              "perfect just the way you are"
+            ]; // Sidenote: This is not final
+      function warning() {
+        var version = "Version 1"
+        var date = new Date();
+        var month = date.getMonth();
+        var day = date.getDate();
+        document.getElementById("version").innerHTML = version + " - Now with " + (person.length * object.length) + " possible combinations!";
+        if(month == 4 && day == 4) {
+          document.getElementById("version").innerHTML = version + " - May the fourth be with you, and " + (person.length * object.length) + " possible combinations!";
+        }
+        if(month == 10 && day == 22) {
+          document.getElementById("version").innerHTML = version + " - Happy birthday to Nothy! To celebrate this we now have " + (person.length * object.length) + " possible combinations!";
+        }
+        start();
+      }
+      function start() {
+
+        //var version = "Version x"
+        //document.getElementById("version").innerHTML = version;
+        document.getElementById("textelement").innerHTML = ".";
+        document.getElementById("disclaimer").innerHTML = "Disclaimer: Please do take these seriously.";
+        window.setTimeout(pickMessage,50);
+      }
+      function pickMessage() {
+
+        var messageIndex = Math.floor(Math.random() * person.length );
+        var messageIndex2 = Math.floor(Math.random() * object.length );
+        console.log("Compliment #"+(messageIndex + messageIndex2 + Math.floor(Math.random())) + " :"+messageIndex+","+messageIndex2);
+
+        var message = person[messageIndex] + " " + object[messageIndex2]+". ♥";
+
+
+        document.getElementById("textelement").innerHTML = message;
+
+        //document.getElementById("version").innerHTML = version + " - Now with " + (person.length * object.length) + " possible combinations!";
+      }
+      onload = function() { warning(); }
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,43 @@
+version = "2.0B"
+
+function cprint(str,y)
+  local x = term.getSize()
+  local centerXPos = ( x - string.len(str) ) / 2
+  term.setCursorPos( centerXPos, y )
+  write( str )
+end
+
+function aprint(string , color)
+  if not term.isColor() then
+    term.setTextColor(colors.white)
+  else
+	 term.setTextColor(color)
+  end
+	print(string)
+	term.setTextColor(colors.white)
+end
+function setbgColor(color)
+	term.setBackgroundColor(color)
+end
+function textColor(color)
+	term.setTextColor(color)
+end
+function render(x,y,sx,sy,color,defaultcolor,name)
+	paintutils.drawFilledBox(x,y,sx,sy,color)
+	xprint(name,x,y,colors.black)
+	setbgColor(defaultcolor)
+end
+function xprint(str,x,y,color)
+	term.setCursorPos(x,y)
+	aprint(str,color)
+	term.setCursorPos(1,1)
+end
+function xtime(x,y)
+	local systime = os.time()
+	if settings.getVariable("system/settings","timeformat") == "12" then
+		formattedTime = textutils.formatTime(systime, false)
+	else
+		formattedTime = textutils.formatTime(systime, true)
+	end
+	xprint(formattedTime,x,y,colors.black)
+end

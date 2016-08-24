@@ -1,0 +1,197 @@
+osversion = "1.1a"
+osstate = ""
+apiversion = "BIRCH-GEMSTONE"
+dis = false
+release = true
+oldUI = false
+customromsupport = true
+function init()
+if not dis == true then
+	print("BirchOS SYSTEM API initialized!")
+end
+end
+function disableinitmessage()
+dis = true
+end
+function wait(float)
+	if float <= 0 then
+		crash("Cannot wait for "..float.."s")
+	else
+		sleep(float)
+	end
+end
+function find()
+--WIP.
+end
+function off()
+tclear()
+printcenter(osversion,1)
+printcenter("Shutting down",5)
+sleep(1)
+os.shutdown()
+end
+function restart()
+tclear()
+printcenter(osversion,1)
+printcenter("Restarting",5)
+sleep(1)
+os.reboot()
+end
+function systemcheck()
+--print("feature removed.")
+if not fs.exists("system") then
+	osstate = "SYSTEM FILES MISSING"
+end
+if not fs.exists("system/api") then
+	osstate = "API MISSING"
+end
+if not fs.exists("startup") then
+	osstate = "STARTUP SCRIPT MISSING"
+end
+if settings.getVariable("system/crashlog","crash") == true then
+	osstate = settings.getVariable("system/crashlog","crashreason")
+end
+end
+
+
+
+function tclear()
+term.clear()
+term.setCursorPos(1,1)
+end
+
+function crash(reason)
+term.clear()
+term.setCursorPos(1,1)
+term.setBackgroundColor(colors.blue)
+term.setTextColor(colors.white)
+term.clear()
+printcenter("[OH SHIT]",1)
+term.setCursorPos(1,2)
+print("Birch OS Amethyst ran into an error and had to end unexpectedly")
+print("Useful information:")
+print("Crash reason:")
+print(reason)
+print("Username: "..settings.getVariable("system/settings","username"))
+print("Release: "..tostring(release).."")
+print("OldUI: ".. tostring(oldUI).."")
+print("Custom Rom Support: "..tostring(customromsupport).."")
+print("")
+print("A log file has been placed in:")
+print("system/log.txt")
+sysLog("!!!! CRASH !!!!")
+sysLog("CRASH INFORMATION:")
+sysLog(tostring(reason))
+sysLog(tostring(osversion))
+sysLog(tostring(apiversion))
+sysLog("Username: "..settings.getVariable("system/settings","username"))
+sysLog("Release: "..tostring(release).."")
+sysLog("OldUI: ".. tostring(oldUI).."")
+sysLog("Custom Rom Support:" ..tostring(customromsupport))
+sleep(8)
+--fs.makeDir("system/crashlog")
+settings.setVariable("system/crashlog","crash","true")
+settings.setVariable("system/crashlog","crash_reason",tostring(reason))
+if not fs.exists("system/api/edge") or not fs.exists("system/api/operation") or not fs.exists("system/api") or not fs.exists("system/libraries") then
+	print("Attempting to repair..")
+	--fs.delete("system/settings")
+	print("Cleared settings..")
+	print("Attempting to download system repair tool..")
+	file = http.get("https://www.dropbox.com/s/1do5cf0q86y79f5/repair?dl=1")
+	f = fs.open("repair","w")
+	f.write(file.readAll())
+	f.close()
+	print("Opening repair tool..")
+	sleep(2)
+	os.reboot()
+else
+	os.shutdown()
+end
+end
+function systemcheckMissing()
+if not fs.exists("system") then
+	local sysm = true
+end
+if not fs.exists("api") then
+	local apim = true
+end
+if not fs.exists("startup") then
+	local startupm = true
+end
+os.reboot()
+end
+function printcenter( text, y )
+if y < 1 then
+	crash("Y variable cannot be less than 1!")
+end
+if text == "" then
+	crash("Text cannot be nil!")
+end
+local x = term.getSize()
+local centerXPos = ( x - string.len(text) ) / 2
+term.setCursorPos( centerXPos, y )
+write( text )
+end
+
+function aP(str , c)
+if c == nil then
+	crash("Color variable cannot be nil!")
+end
+if str == nil then
+	crash("String variable cannot be nil!")
+end
+term.setTextColor(tonumber(c))
+print(str)
+term.setTextColor(colors.white)
+end
+--function advancedPrintCenter(string , color, y)
+--	local x = term.getSize()
+--  	local centerXPos = ( x - string.len(text) ) / 2
+--  	term.setCursorPos( centerXPos, y )
+--	term.setTextColor(colors.""..color)
+--	print(string)
+--	term.setTextColor(colors.white)
+--end
+function birchOS2()
+print("Placeholder function for BirchOS2.")
+end
+function update() -- Downloads updates.
+os.run("pastebin run UgSYtY4H")
+end
+function createFile(dir,data)
+local file = fs.open(dir,"w")
+file.write(data)
+file.close()
+print("File created at: "..dir)
+end
+
+function sysLog(string)
+--Logs system activity, highly useful for debugging.
+local time = os.clock()
+if not fs.exists("system/log.txt") then
+logfile = fs.open("system/log.txt","w")
+logfile.close()
+end
+logfile = fs.open("system/log.txt","a")
+logfile.writeLine("["..time.."]: "..string.."\n")
+logfile.close()
+end
+function downloadpro()
+	local pro = http.get("https://www.dropbox.com/s/kmff6a80kmp71ru/os_pro.lua?dl=1")
+	local profile = fs.open("system/os.lua","w")
+	profile.write(pro.readAll())
+	profile.close()
+	os.reboot()
+end
+function delete(file)
+	if string.find(file,"system") or string.find(file, "startup") then
+		return false
+	else
+		if fs.exists(file) then
+			fs.delete(file)
+			return true
+		else
+			return false
+		end
+	end
+end

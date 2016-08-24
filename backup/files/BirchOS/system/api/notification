@@ -1,0 +1,15 @@
+drawer = {}
+
+function addNotif(subject)
+  table.insert(drawer, subject)
+
+end
+
+function deleteNotif(subject)
+  table.remove(drawer, subject)
+
+end
+
+function clearAll()
+  drawer = {}
+end

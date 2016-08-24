@@ -1,0 +1,120 @@
+@keyframes fadeAndScale {
+    from {
+        opacity: 0;
+        transform: scale(.9, .9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}
+p {
+  font-family: 'Open Sans', sans-serif;
+}
+h1 {
+  font-family: 'Open Sans', sans-serif;
+}
+h2 {
+  font-family: 'Open Sans', sans-serif;
+}
+h3 {
+  font-family: 'Open Sans', sans-serif;
+}
+h4 {
+  font-family: 'Open Sans', sans-serif;
+}
+h5 {
+  font-family: 'Open Sans', sans-serif;
+}
+h6 {
+  font-family: 'Open Sans', sans-serif;
+}
+a {
+  color: inherit;
+  font-family: 'Open Sans', sans-serif;
+}
+a:visited {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+body {
+  background-color: #E5E5E5;
+  padding: 0;
+  spacing: 0;
+}
+div {
+  text-align: justify;
+}
+.center {
+  text-align: center;
+}
+
+img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.image {
+   position: relative;
+   width: 100%; /* for IE 6 */
+}
+
+h2.overImg {
+   position: absolute;
+   top: 200px;
+   left: 0;
+   width: 100%;
+}
+h2 span {
+   color: white;
+   font: bold 24px/45px Helvetica, Sans-Serif;
+   letter-spacing: -1px;
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+}
+h3 span {
+   color: white;
+   font: bold 18px/24px Helvetica, Sans-Serif;
+   letter-spacing: -1px;
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+}
+h2 span.spacer {
+   padding:0 5px;
+}
+h3 span.spacer {
+   padding:0 5px;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #418CF0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px 18px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #056492;
+}

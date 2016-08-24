@@ -1,0 +1,59 @@
+
+dis = false
+function init() 
+	if not dis == true then
+	print("BirchOS Source API [BETA] initialized!")
+	end
+end
+function disableinitmessage()
+	dis = true
+end
+function gameload(saveDir,gameProperties,bool) 
+	--[[
+	TODO: Bool = load game?
+		  saveDir = where?
+		  gameProperties? 
+	]]
+
+
+end
+
+
+function gameinitialize() 
+	-- This is literally used for initializing games. Literally nothing else. Game engine coming soon instead of this massive pile of shit.
+
+
+end
+
+function toolkit() 
+
+
+
+end
+
+function advanced_toolkit()
+
+
+
+end
+
+function toolkit_crash() 
+--[[
+
+	THIS IS ONLY USED IF THE TOOLKIT ACTUALLY CRASHES OR FAILS, DO NOT CALL OTHERWISE.
+
+]]--
+
+term.setBackgroundColor(colors.white)
+term.setTextColor(colors.black)
+term.clear()
+print("SOURCEAPI TOOLKIT HAS CRASHED")
+print("REBOOTING IN 10 SECONDS")
+sleep(1)
+birch.crash("TOOLKIT CRASH")
+--os.reboot()
+end
+
+function color(c)
+	term.setTextColor(c)
+end

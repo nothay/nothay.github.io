@@ -1,0 +1,5 @@
+local arg = {...}
+function foo(bar)
+  print(bar)
+end
+foo(arg[1])

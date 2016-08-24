@@ -1,0 +1,21 @@
+arg = {...}
+function launch()
+  if fs.exists("system/os.lua") then
+    os.loadAPI("system/api/birch")
+    os.loadAPI("system/api/settings")
+    shell.run("system/os.lua")
+  else
+    if fs.exists("repair") then
+      print("BirchOS Repair tool found. Start it? (Y/N)")
+      ans = io.read()
+      if string.lower(ans) == "y" then
+        shell.run("repair")
+      else
+        print("")
+      end
+    else
+      print("BirchOS was unable to launch because there are some system files missing.")
+    end
+  end
+end
+launch()

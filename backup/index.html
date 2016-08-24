@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<meta charset="UTF-8">
+<html>
+  <head>
+    <title> Nothy | Home </title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="icon" href="files/favicon.png">
+  </head>
+  <body bgcolor="#4C98B1">
+    <p class = "white link"> <img id="Logo" src="imgs/Nothy.png" width="160" height="55" align="middle" > <a href = "http://www.nothy.se/"> Home</a> | <a href = "about">About</a> | <a href = "projects">Projects</a> | <a href = "tweets">Twitter</a> </p>
+    <h1 class = "white center fadein" id="potato"> I'm a developer. This is my website. </h1>
+    <p class = "white center bold fadein"> And I develop stuff, you can find it in the <a href = "projects">Projects</a> page. </p>
+    <script>
+      var texts = [
+        "Why hello there.",
+        "Welcome to my website.",
+        "I've been expecting you.",
+        "Hello.",
+        "Wait, holy shit I'm getting traffic.",
+        "Who are you?",
+        "You can find my introduction on the About page",
+        "What?",
+        "Is.. Is this what it's like to be famous?",
+      ];
+      var msg = Math.floor(Math.random() * texts.length);
+      document.getElementById("potato").innerHTML = texts[msg];
+    </script>
+  </body>
+</html>

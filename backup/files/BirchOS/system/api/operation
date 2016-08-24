@@ -1,0 +1,37 @@
+
+apiversion = "1.0"
+function init() 
+	if not dis == true then
+	print("Background Operation API Initialized!")
+	end
+end
+function disableinitmessage() 
+	dis = true
+end
+function performance_Test(num) -- performance test
+	while(1) do
+	num = num + 1
+	print(num)
+	--settings.setVariable("system/settings","count",num)
+	if num >= 10000 then
+		print("Performance test successful.")
+		print("AUTOMATIC REBOOT IN 10 SECONDS")
+		sleep(10)
+		os.reboot()
+		break
+	end
+	end
+end
+function createBackGroundOperation(operation_name,operation_task,operation_Executable)
+
+
+end
+function advancedTermination(task_name,task_Executable) 
+
+
+
+end
+function forceReboot() 
+	term.clear()
+	os.reboot()
+end

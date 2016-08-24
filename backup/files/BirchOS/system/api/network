@@ -1,0 +1,64 @@
+--BROKEN
+apiversion = "1.0"
+mmsg = false
+msg = ""
+idd = 0
+dis = false
+function init()
+	if not dis == true then
+	print("BirchOS Network API initialized!")
+	end
+end
+function disableinitmessage()
+	dis = true
+end
+function connect() 
+	rednet.open("right")
+end
+
+function disconnect() 
+	rednet.close()
+end
+
+function send(i,m) 
+		rednet.send(i,m)
+end
+
+function rec() 
+		id, message = rednet.receive()
+		if rednet.receive() then
+			mssg = true
+		end
+		print("[IM]("..id.."): "..message)
+end
+
+function block(blocked_id)
+	while(true) do 
+		id, message = rednet.receive()
+		if blocked_id == id then
+			print("Message from '"..blocked_id.."' was blocked.",1)
+		end
+	end	
+end
+function networkGUI()
+	while(true) do
+		local event = os.pullEvent()
+	
+		birch.tclear()
+		print("Connected.")
+		--[[
+			This is where all the shit goes down.
+			Except for like, Hacking. Maybe. Lel.
+		]]--
+		if event == "rednet_receive" then
+			id, message = rednet.receive()
+			print("[IM]("..id.."): "..message)
+		end
+		print("Enter message:")
+		msg = io.read()
+		print("To ID:")
+		idd = io.read()
+		send(id,msg)
+		mssg = false
+	end
+end
