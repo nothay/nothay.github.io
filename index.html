@@ -1,140 +1,90 @@
-<DOCTYPE html>
-<!--
-  (C) Linus Ramneborg 2016. All rights reserved.
-  No re-use allowed.
- -->
 <html>
   <head>
-    <title id="dynamicTitle"> Vad är Internet? </title>
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" href="dankmemes.css">
     <meta charset="utf-8">
-    <script src="Assets/Script/jquery-3.1.0.min.js"></script>
-    <script type="text/javascript">
-      var scrollAmount = 0;
-      var pixelsToNotify = 5;
-      var an = false;
-      var an_c = false;
-      var disable = true;
-      function isMobile() {
-        // Call on load
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-            // Scale down top bar
-            disable = false;
-            console.log("Is mobile!");
-            document.getElementByID("topbar_list").style="padding: 20px 24px;";
-            document.getElementByID("topbar_list_cr").style="padding: 20px 24px";
-        }
-      }
-      if(disable == false) {
-        $("#topbar_list_cr").click(function(){
-          alert("huh");
-          if(an == false) {
-            an_c = true;
-            $("#credits").fadeOut();
-          }
-          if(an == true) {
-            an_c = false;
-            $("#credits").fadeIn();
-          }
-        });
-
-        $(document).scroll(function() {
-          var distance = $(window).scrollTop();
-            //console.log(distance, scrollAmount);
-            if(distance - scrollAmount > pixelsToNotify){
-              if(an == false) {
-                an = true;
-                scrollAmount = distance;
-                $("#topbar").fadeOut();
-                console.log("Fading topbar out");
-              }
-            }
-            if(distance < scrollAmount - pixelsToNotify){
-              if(an == true) {
-                an = false;
-                console.log("Fading topbar in");
-                $("#topbar").fadeIn();
-                scrollAmount = distance;
-              }
-            }
-        });
-
-      }
-    </script>
-    <link rel="icon" href="Assets/img/info/internet_is.png" type="image/x-icon"/>
+    <title> DANK MEME COMPILATION 2018 [GONE SEXUAL] </title>
   </head>
-  <body style="font-family: 'Open Sans', sans-serif;" onload="console.log('Site done loading.'); isMobile();
-          console.log('fade: ' + disable);">
-    <div id="topbar">
-      <ul>
-        <li id="topbar_list"><a class="hvr-underline-from-right" href="http://www.nothy.se/"> nothy.se </a> </li>
-        <li id="topbar_list"><a class="hvr-underline-from-center" href="#start" style="padding: 16px 18px;">Start</a></li>
-        <li id="topbar_list"><a class="hvr-underline-from-center" href="#history" style="padding: 16px 18px;">Historia</a></li>
-        <li id="topbar_list"><a class="hvr-underline-from-center" href="#facts" style="padding: 16px 18px;">Fakta</a></li>
-        <li id="topbar_list"><a class="hvr-underline-from-center"  href="#end" style="padding: 16px 18px;">Slut</a></li>
-        <li id="topbar_list_cr"><a class="hvr-underline-from-center" href="#credits" style="padding: 16px 18px;"> Om sidan </a> </li>
-      </ul>
-    </div>
-    <br>
-    <br>
-    <br>
-    <div id="start" style="padding-left:100px; padding-right:100px;">
-      <center>
-        <img src="Assets/img/info/internet_is.png">
-        <h2>Vad är Internet?</h2>
-        <p> Den frågan som *nästan* alla har besvarat </p>
-      </center>
-
-    </div>
-    <br>
-    <div id="history" style="padding-left:100px; padding-right:100px;">
-        <p> Hela konceptet som vi idag kallar 'Internet' började år 1969 - Då dataforskare kämpade med att få två datorer att kommunicera, vilket ledde till att det första meddelandet som skickades med framgång var "LO". </p>
-        <p> Datorn kraschade efter att ha tagit emot meddelandet, dock. </p>
-        <p> Fast-forward till 1980 -- USA använder Internet för universitet som fildelning mellan universiteten. Det är så stora mängder servrar att de var tvungna att komma på det som vi idag känner till som URL-system. </p>
-    </div>
-    <div id="facts" style="padding-left:100px; padding-right:100px;">
-        <h3> Vad är en URL? </h3>
-
-        URL står för “Uniform Resource Locator” och är det som gör att du inte sitter och trasslar med nummer (IP-adresser) och kommer direkt till webbplatsen med bara domannamn och information som förklarar hur World Wide Web ska läsa informationen.
-        <h3> Men - Vad är en IP-adress? </h3>
-
-        En IP-adress är ett nummer, som består av fyra "sektioner" med tresiffriga nummer som mest.
-        Ett exempel på en IP-adress är 124.0.0.1 vilket är den adressen som leder till din dator!
-        Om du skriver in en webbsidas IP adress i en webbläsare så laddar den sidan. Varför?
-        Det är på grund av URL systemet som nämndes tidigare i texten.
-        <h3>Vad står HTTP för? </h3>
-
-        HTTP står för Hypertext Transfer Protocol och är ett kommunikationsprotokoll som används för att överföra data för webbsidor på World Wide Web (www). Det finns en annan metod att föra över data genom Internet, och det kallas “FTP” eller File Transfer Protocol. Det används främst vid nedladdningar och när man skickar filer mellan två parter.
-        <h3> Vad är HTML och hur fungerar det? </h3>
-
-        Med HTTP så kommer ett språk som du kanske har hört talas om förut: Det heter HTML och betyder: “Hypertext Markup Language” och är det som *nästan* alla webbsidor är byggda på.
-        Det skapades av World Wide Web Consortium (W3C) & Web Hypertext Application Technology Working Group (WHATWG) och är vad denna webbsida är skriven i! (tryck F12 för att se hur det ser ut.)
-        När en webbläsare läser in HTML kod så visar den alla element som är i koden, i den ordningen som det är skrivet. W3C är även de som är med och utvecklar tekniska protokoll, standarder och programvara för webben.
-        <h3> WTF är en webbläsare? </h3>
-
-        En webbläsare är en typ av programvara på datorn som gör att du kommer åt Internet. Webbläsaren fungerar som ett fönster som visar olika webbplatser där det finns information. Allt du behöver göra är att skriva in en webbadress i webbläsaren så kommer du direkt till den webbplatsen.
-        <h3> Hur skapar man sin egna webbsida?</h3>
-
-        Då måste du köpa ett webbhotell - En service som möjliggör att du kan publicera din egen webbsida på Internet och använda e-post på webbsidan. Med ett webbhotell så behöver du inte en server för att hålla sidan uppe, utan du gör det i utbyte mot att du betalar för tjänsten.
-        Annars så skulle du vara tvungen att bygga en webbserver, köpa domän, och köra din webbsida därifrån.
-        <h3> Vad är en domän? </h3>
-        En domän är en webbadress.
-        Ett exempel på en domän är www.example.com.
-        Då domännamnet är example.com. Du kan skapa din egna domän <i> nästan </i> gratis. Du måste bara veta vad du gör, eller så köper du en domän någonstans. Domänen för www.nothy.se/ var köpt hos Binero.
-
-    </div>
-    <div id="end" style="padding-left:100px; padding-right:100px;">
-      <h3> Nu då? </h3>
-        Congratulations. Du är nu expert på internet, berätta för en vän! Eller skryt om det på skolgården. Varför inte tala om för farmor? Eller din katt?
-        <h3> sauce: wikipedia </h3>
-    </div>
-    <br>
-    <div>
+  <body>
+    <header>
+          <br>
+          <img src="9trash.png">
+          <br>
+          <h3> </h3>
+    </header>
+    <nav class="kunt">
       <br>
-      <center>
-        <p> Version 16.08.24.1017 </p>
-        <p> (C) Linus Ramneborg 2016, All rights reserved </p>
-      </center>
+      THE TRASHEST MEMES ON THE WEB SINCE 1993 &trade;
+    </nav>
+    <div id="wrapper">
+      <div class="noods">
+        <div class="rubrik">
+          dnak-memes
+        </div>
+        <div class="square">
+          <img src="dankmeme.jpg" width="100%" height="100%">
+        </div>
+        <div class="square">
+          <img src="succ.jpg" width="100%" height="100%">
+        </div>
+        <div class="square">
+          <img src="mlgcat.jpg" width="100%" height="100%">
+        </div>
+        <div class="square">
+          <img src="protection.png" width="100%" height="100%">
+        </div>
+        <div class="square">
+          <img src="aland.png" width="100%" height="100%">
+        </div>
+        <div class="square">
+          <img src="SMASHING.png" width="100%" height="100%">
+        </div>
+      </div>
+      <div class="youtuob">
+        <div class="rubrik">
+          mlp youtube videos subscribe to my chanel pls i have 32 sub
+        </div>
+        <div class="square">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/n4bucphC9r4" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="square">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/wux5jOLVLqM" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="square">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/T3CojtNS5hI" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="liveleak">
+        <div class="rubrik">
+          vidya
+        </div>
+        <div class="square">
+          <video src="katt_och_bebis.mp4" autoplay="true" controls="true" width="100%" height="100%">
+        </div>
+        <div class="square">
+          <video src="katt_och_bebis.mp4" autoplay="true" controls="true" width="100%" height="100%">
+        </div>
+        <div class="square">
+          <video src="katt_och_bebis.mp4" autoplay="true" controls="true" width="100%" height="100%">
+        </div>
+      </div>
     </div>
+    <div class="iframe">
+      <div class="rubrik">
+        check out our affiliate sites
+      </div>
+      <div class="square">
+        <iframe src="file:///C:/Users/Linus/Documents/webb/index.html" width="100%" height="100%"></iframe>
+      </div>
+      <div class="square">
+        <iframe src="http://www.penisland.net" width="100%" height="100%"></iframe>
+      </div>
+      <div class="square">
+        <iframe src="http://www.google.se" width="100%" height="100%"></iframe>
+      </div>
+    </div>
+    <footer class="fuckmeharder">
+      <h1> &copy; memetrash corporation 1997 all rights reserved </h1>
+      dont steal our contents pls
+    </footer>
   </body>
 </html>
